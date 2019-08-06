@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+  <title>{% block title %}Banco Itaú | File Transfer{% endblock %}</title>
+  <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="/static/js/popper.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .cabecalho {
+        background-color: #ec7000;
+        color: white;
+    }
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+    a {
+        color: white;
+    }
+</style>
+<div class="cabecalho text-center">
+  <br>
+    <h1>Banco Itaú | File Transfer</h1>
+  <br>
+</div>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-inverse">
+    <a class="navbar-brand" href="#">
+      <img src="/static/img/icon.png" alt="Logo" style="width:40px;">
+    </a>
+    <ul class="nav navbar-nav">
+      <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="{% url 'upload' %}"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</a></li>
+      <li><a href="{% url 'book_list' %}"><span class="glyphicon glyphicon-book"></span> Form PDF</a></li>
+      <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12">
+        <div class="card mb-4">
+          <div class="card-body">
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<footer>
+  <div class="footer text-center" style="margin-bottom:0; background-color: #605751; color: white; font-size: 12px">
+    <p>
+      Banco Itaú | File Transfer
+      <br>
+      Desenvolvido por Wallace Salles
+      <br>
+      <a href="mailto: wallace_robinson@hotmail.com">E-mail</a> |
+      <a href="https://www.linkedin.com/in/wallace-salles-767245a6/">LinkedIn.com</a> |
+      <a href="https://bitbucket.org/wsalles/">BitBucket.com</a>
+    </p>
+    <p style="font-size: 8px">© Copyright 2019 Copyright.com.br - All Rights Reserved</p>
+  </div>
+</footer>
+
+</html>

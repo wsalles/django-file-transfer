@@ -15,9 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import people
+from core import views
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('people/<str:person>/', people)
+    path('login/', views.login_user),
+    path('login/submit', views.submit_login),
+    path('logout/', views.logout_user, name='logout'),
+    path('', views.Home.as_view(), name='home'),
+    path('upload/', views.upload, name='upload'),
+    path('books/', views.book_list, name='book_list'),
+    path('books/upload/', views.upload_book, name='upload_book'),
+    path('books/<int:pk>/', views.delete_book, name='delete_book'),
+    path('class/books/upload/', views.UploadBookView.as_view(), name='class_upload_book'),
 ]
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
