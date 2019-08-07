@@ -7,8 +7,8 @@ from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic import TemplateView, ListView, CreateView
 
-from .forms import BookForm
-from .models import Book
+from .forms import BookForm, UploadForm
+from .models import Book, UploadFiles
 
 
 @login_required(login_url='/login/')
@@ -41,13 +41,19 @@ class Home(TemplateView):
 
 @login_required(login_url='/login/')
 def upload(request):
-    context = {}
     if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file)
-        context['url'] = fs.url(name)
-    return render(request, 'upload.html', context)
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('upload')
+    else:
+        form = UploadForm()
+
+    uploads = UploadFiles.objects.all()
+    return render(request, 'upload.html', {
+        'uploads': uploads,
+        'form': form
+    })
 
 
 @login_required(login_url='/login/')
@@ -78,3 +84,11 @@ def delete_book(request, pk):
         book = Book.objects.get(pk=pk)
         book.delete()
     return redirect('book_list')
+
+
+@login_required(login_url='/login/')
+def delete_files(request, pk):
+    if request.method == 'POST':
+        uploads = UploadFiles.objects.get(pk=pk)
+        uploads.delete()
+    return redirect('upload')

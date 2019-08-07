@@ -1,13 +1,48 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-  <h2>Upload</h2>
-  <form method="post" enctype="multipart/form-data">
+
+
+  {% block content_header %}
+    <h2 align="center">Upload</h2>
+    <h4 align="center">
+      Pode subir qualquer tipo de arquivo.
+      <br>
+    </h4>
+  {% endblock %}
+<table class="table mb-0">
+    <thead>
+      <tr>
+        <th>Files:</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for upload in uploads %}
+        <tr>
+          <td>
+            <a href="{{ upload.file.url }}" target="_blank">{{ upload.file.url }}</a>
+          </td>
+          <td>
+          </td>
+          <td>
+            <form method="post" action="{% url 'delete_files' upload.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<br>
+<form method="post" enctype="multipart/form-data" style="margin:0 auto; width:250px;">
     {% csrf_token %}
-    <input type="file" name="document">
-    <button type="submit">Upload file</button>
-  </form>
-  {% if url %}
-    <p>Uploaded file: <a href="{{ url }}">{{ url }}</a></p>
-  {% endif %}
+    {{ form|crispy }}
+    <p align="center">
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </p>
+</form>
 {% endblock %}

@@ -3,9 +3,14 @@
 {% block content %}
 
   {% block content_header %}
-    <h2>Books</h2>
-    <p>
-      <a href="{% url 'upload_book' %}" class="btn btn-primary">Upload book</a>
+    <h2 align="center">Form PDF</h2>
+    <h4 align="center">
+      Página destinada apenas para registro de livros em PDF abaixo de 10MB.
+      <br>
+    </h4>
+
+    <p align="center">
+      <a href="{% url 'upload_book' %}" class="btn btn-primary">Upload Book</a>
     </p>
   {% endblock %}
 
@@ -32,7 +37,7 @@
           <td>{{ book.title }}</td>
           <td>{{ book.author }}</td>
           <td>
-            <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+            <a href="{{ book.pdf.url }}" class="btn btn-success btn-sm" target="_blank">
               Download PDF
             </a>
           </td>

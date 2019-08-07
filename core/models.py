@@ -16,3 +16,14 @@ class Book(models.Model):
         self.pdf.delete()
         self.cover.delete()
         super().delete(*args, **kwargs)
+
+
+class UploadFiles(models.Model):
+    file = models.FileField(upload_to='files/')
+
+    def __str__(self):
+        return self.file
+
+    def delete(self, *args, **kwargs):
+        self.file.delete()
+        super().delete(*args, **kwargs)
