@@ -12,6 +12,7 @@ CONTENT_TYPES = ['.pdf']
 # 500MB - 429916160
 MAX_UPLOAD_SIZE = "10485760"
 
+
 def validate_file_extension(value):
     ext = os.path.splitext(value.name)[1]  # [0] returns path+filename
     if not ext.lower() in CONTENT_TYPES:
