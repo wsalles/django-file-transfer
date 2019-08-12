@@ -40,18 +40,19 @@ de dados em diferentes bancos relacionais **(ORM)**, por exemplo, MySQL, Postgre
 ## 3) Embasamento teórico
 Dado as necessidades, pude concluir que o Django conseguiria por si só, atender a maioria dos pedidos deste case, e não só para esse case, digo em mais de um projeto. De fato, o framework é poderoso.
 
-Quando desenvolvo alguma automação ou API para beckend eu prefiro utilizar o Flask, que é outro framework do Python. Porém, em cenários que requer mais do frontend, eu acabo optando pelo Django.
+Quando desenvolvo alguma automação ou API para backend eu prefiro utilizar o Flask, que é outro framework do Python. Porém, em cenários que requer mais do frontend, eu acabo optando pelo Django.
 
 Pensando em uso de escalabilidade em aplicações web, tenho preferido utilizar bastante o uWSGI. O mesmo é simples, objetivo, fácil de configurar e poderoso.
 
 Para os casos de PDF acima de 10MB, eu pensei em implementar um watcher-folder olhando para um diretório *NFS* ou *CIFS*
-onde o usuário iria colocar os arquivos e em seguida serem consumidos pelo script, passando pela *pipelane* normal da
+onde o usuário iria colocar os arquivos e em seguida serem consumidos pelo script, passando pela *pipeline* normal da
 plataforma, sendo que, o watcher-folder faria um POST para api do **File-Transfer** *(URI exemplo: /api/upload)*
 
 
 ## 4) Modelagem da base de dados
 
 Segue abaixo, telas capturadas do *software Navicat* para visualização das tabelas criadas pelo **Django-Admin**:
+
 ![](documents/imagens/tabelas.png)
 
 **Tabelas com relação:**
