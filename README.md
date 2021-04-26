@@ -1,7 +1,4 @@
-![](itau.png)
-# Banco Itaú | File Transfer
-## Case – Engenheiro Suporte de Integração
-
+# Django | File Transfer
 
 # Sumário:
 * * *
@@ -78,10 +75,10 @@ Porém, as duas principais do projeto são: **core_book** e **core_uploadfiles**
 ## 8) Imagem do Docker publicada no Docker Hub
 O projeto está pronto dentro do meu repositório do DockerHub:
 
-[https://hub.docker.com/r/wsalles/itau-file-transfer](https://hub.docker.com/r/wsalles/itau-file-transfer)
+[https://hub.docker.com/r/wsalles/django-file-transfer](https://hub.docker.com/r/wsalles/django-file-transfer)
 
 **Dica:**
 Coloquei também aqui no repositório do Git o **Dockerfile** para saberem como foi realizado o build do projeto. 
 
 #### Autor:
-Wallace Salles < [wallace_robinson@hotmail.com](mailto:wallace_robinson@hotmail.com) >
+Wallace Salles < [ops@wallacesalles.dev](mailto:ops@wallacesalles.dev) >
