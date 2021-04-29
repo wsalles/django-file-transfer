@@ -50,20 +50,20 @@ plataforma, sendo que, o watcher-folder faria um POST para api do **File-Transfe
 
 Segue abaixo, telas capturadas do *software Navicat* para visualização das tabelas criadas pelo **Django-Admin**:
 
-![](documents/imagens/tabelas.png)
+![](imagens/tabelas.png)
 
 **Tabelas com relação:**
 
-![](documents/imagens/relacao_tabelas_django.png)
+![](imagens/relacao_tabelas_django.png)
 
 Porém, as duas principais do projeto são: **core_book** e **core_uploadfiles**
 
-![](documents/imagens/tabela-core_book.png)  -  ![](documents/imagens/tabela-core_uploadfiles.png)
+![](imagens/tabela-core_book.png)  -  ![](imagens/tabela-core_uploadfiles.png)
 
 
 ## 5) Diagrama de implantação da solução
 
-![](documents/imagens/diagrama_implantacao.png)
+![](imagens/diagrama_implantacao.png)
 
 ## 7) Referências utilizadas
 
@@ -80,5 +80,6 @@ O projeto está pronto dentro do meu repositório do DockerHub:
 **Dica:**
 Coloquei também aqui no repositório do Git o **Dockerfile** para saberem como foi realizado o build do projeto. 
 
-#### Autor:
-Wallace Salles < [ops@wallacesalles.dev](mailto:ops@wallacesalles.dev) >
+* * *
+
+Wallace Salles <[ops@wallacesalles.dev](mailto:ops@wallacesalles.dev)>

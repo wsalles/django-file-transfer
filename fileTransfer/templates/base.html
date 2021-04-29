@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="br">
 <head>
   <meta charset="utf-8">
@@ -7,34 +7,40 @@
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
-  <title>{% block title %}Banco Itaú | File Transfer{% endblock %}</title>
+  <title>{% block title %}File Transfer{% endblock %}</title>
   <script src="/static/js/jquery-3.3.1.slim.min.js"></script>
   <script src="/static/js/popper.min.js"></script>
   <script src="/static/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 </head>
 <style>
-    .cabecalho {
-        background-color: #ec7000;
+    .head {
+        background-color: #0C4B33;
         color: white;
     }
+    .body {
+        background-color: #ECE9EB
+    }
     .footer {
+        color: white;
+        font-size: 12px;
         position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
         text-align: center;
+        margin-bottom:0;
+        background-color: #222;
     }
 </style>
-<div class="cabecalho text-center">
+<div class="head text-center">
   <br>
-    <h1>Banco Itaú | File Transfer</h1>
+    <h1>File Transfer</h1>
+    <h4>Django Web Development</h4>
   <br>
 </div>
-<body>
+<body class="body">
   <nav class="navbar navbar-expand-sm navbar-inverse">
-    <a class="navbar-brand" href="#">
-      <img src="/static/img/icon.png" alt="Logo" style="width:40px;">
-    </a>
     <ul class="nav navbar-nav">
       <li><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
       <li><a href="{% url 'upload' %}"><span class="glyphicon glyphicon-cloud-upload"></span> Upload</a></li>
@@ -44,7 +50,7 @@
   </nav>
 
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" >
       <div class="col-lg-10 col-md-12">
         <div class="card mb-4">
           <div class="card-body">
@@ -58,15 +64,15 @@
 </body>
 
 <footer>
-  <div class="footer text-center" style="margin-bottom:0; background-color: #605751; color: white; font-size: 12px">
+  <div class="footer text-center">
     <p>
-      Banco Itaú | File Transfer
       <br>
-      Desenvolvido por Wallace Salles
+      Developed by Wallace Salles
       <br>
       <a href="mailto: wallace_robinson@hotmail.com">E-mail</a> |
-      <a href="https://www.linkedin.com/in/wallace-salles-767245a6/">LinkedIn.com</a> |
-      <a href="https://bitbucket.org/wsalles/">BitBucket.com</a>
+      <a href="https://www.linkedin.com/in/wallacesalles/">LinkedIn</a> |
+      <a href="https://github.com/wsalles/">GitHub</a> |
+      <a href="https://wallacesalles.dev/">Webpage</a>
     </p>
     <p style="font-size: 8px">© Copyright 2019 Copyright.com.br - All Rights Reserved</p>
   </div>

@@ -1,11 +1,10 @@
 from django.contrib import messages
+from django.utils.decorators import method_decorator
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
-from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_protect
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView
 
 from .forms import BookForm, UploadForm
 from .models import Book, UploadFiles
@@ -31,12 +30,16 @@ def submit_login(request):
             login(request, user)
             return redirect('/')
         else:
-            messages.error(request, 'Usuário/Senha inválidos. Favor tentar novamente.')
+            messages.error(request, 'Login failed. Invalid user or password.')
     return redirect('/login/')
 
 
 class Home(TemplateView):
     template_name = 'home.html'
+
+    @method_decorator(login_required(login_url='/login/'))
+    def dispatch(self, *args, **kwargs):
+        return super(Home, self).dispatch(*args, **kwargs)
 
 
 @login_required(login_url='/login/')

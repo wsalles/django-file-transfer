@@ -1,21 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="br">
 <head>
-  <title>Banco Itaú | File Transfer</title>
+  <title>File Transfer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   <script src="/static/js/jquery.min.js"></script>
   <script src="/static/js/popper.min.js"></script>
   <script src="/static/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
   <style>
     body{
         color: white;
         font-weight: bold;
-        background-image: url("/static/img/wallpaper01.jpg");
+        background-image: url("/static/img/wallpaper02.jpg");
+        background-size: 100%;
+        background-repeat:no-repeat;
         background-attachment: fixed;
-        background-position: center;
-        position: relative;
     }
   </style>
 </head>
@@ -26,12 +29,12 @@
         <div class="col-4">
             <h2 class="text-center"><strong>File Transfer</strong></h2>
           <div class="form-group">
-            <label for="username">Usuário:</label>
-            <input type="username" class="form-control" id="username" placeholder="Usuário ou E-mail" name="username" size="10">
+            <label for="username">User:</label>
+            <input type="username" class="form-control" id="username" placeholder="admin" name="username" size="10">
           </div>
           <div class="form-group">
-            <label for="pwd">Senha:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Senha" name="password">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="admin123" name="password">
           </div>
                   {% if messages %}
                       {% for message in messages %}
@@ -39,7 +42,7 @@
                       {% endfor %}
 
                   {% endif %}
-          <button type="submit" class="btn btn-primary">Entrar</button>
+          <button type="submit" class="btn btn-primary">Log In</button>
       </div>
     </div>
   </form>
