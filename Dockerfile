@@ -1,16 +1,24 @@
-FROM python:3.6
-
-RUN apt-get update && \
-    apt-get install -y && \
-    pip3 install uwsgi
+FROM python:3.9-alpine
 
 WORKDIR /app
-
-COPY requirements.txt ./
-RUN pip3 install -r requirements.txt
-RUN pip3 install uwsgi
-
 COPY . .
+
+RUN apk add --no-cache \
+        gcc linux-headers libc-dev \
+        mariadb-dev python3-dev libffi-dev openssl-dev \
+        jpeg-dev zlib-dev bash
+
+ENV TZ="America/Sao_Paulo"
+RUN apk add tzdata
+
+RUN rm -rf \
+        /usr/local/share/doc \
+        /usr/local/share/man \
+        /var/cache/apk/* \
+    && find /usr/local -name '*.a' -delete
+
+
+RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
