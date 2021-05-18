@@ -4,6 +4,7 @@ from .validators import validate_file_extension
 
 
 class Book(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     pdf = models.FileField(upload_to='books/pdfs/', validators=[validate_file_extension])
@@ -19,6 +20,7 @@ class Book(models.Model):
 
 
 class UploadFiles(models.Model):
+    id = models.AutoField(primary_key=True)
     file = models.FileField(upload_to='files/')
 
     def __str__(self):

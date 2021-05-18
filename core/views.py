@@ -34,12 +34,12 @@ def submit_login(request):
     return redirect('/login/')
 
 
-class Home(TemplateView):
+def home(request):
     template_name = 'home.html'
 
-    @method_decorator(login_required(login_url='/login/'))
-    def dispatch(self, *args, **kwargs):
-        return super(Home, self).dispatch(*args, **kwargs)
+    if not request.user.is_authenticated:
+        return redirect('/login')
+    return render(request, template_name)
 
 
 @login_required(login_url='/login/')
